@@ -52,9 +52,9 @@ public class AppController {
         return siteURL.replace(request.getServletPath(), "");
     }
 
-    @GetMapping("/list_users")
+    @GetMapping("/users")
     public String listUsers(Model model) {
-        List<User> listUsers = userRepository.findAll();
+        List<User> listUsers = userServices.listAll();
         model.addAttribute("listUsers", listUsers);
 
         return "users";
